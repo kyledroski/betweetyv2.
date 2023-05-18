@@ -25,14 +25,6 @@
       promptElement.textContent = promptText;
     }
 
-    function submit() {
-        var myText = document.getElementById("submit");
-        let userResponse = document.querySelector("#userResponse");
-        let usersText = document.querySelector("#usersText");
-
-        usersText.innerHTML = "You betweeted: " + userResponse.value;
-    }
-
     function submitResponse() {
       var response = document.getElementById('response').value;
       // Here, you can perform further actions with the user's response,
@@ -49,9 +41,6 @@
   <textarea id="response" rows="4" cols="50"></textarea>
   <br>
   <button onclick="submitResponse()">Submit</button>
-  <input id="userResponse"> <br> <br>
-    <button id="myText" onclick="submit()"> Submit </button>
-    <h3 id="usersText"></h3>
 </body>
 <script>
   // Display the initial prompt when the page loads
