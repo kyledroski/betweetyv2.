@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Daily Prompt</title>
+  <meta charset="utf-8"> <!--helps translate words into computer language-->
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!--allows the site to format any device-->
+  <link rel="stylesheet" href="./styles.css">
+  <script>
+    var prompts = [
+      "What is your favorite book and why?",
+      "Describe your dream vacation destination.",
+      "If you could have any superpower, what would it be and why?",
+      "What is your favorite hobby and how did you get into it?",
+      "If you could meet any historical figure, who would it be and why?",
+    ];
+
+    function getRandomPrompt() {
+      var randomIndex = Math.floor(Math.random() * prompts.length);
+      return prompts[randomIndex];
+    }
+
+    function displayPrompt() {
+      var promptText = getRandomPrompt();
+      var promptElement = document.getElementById('prompt');
+      promptElement.textContent = promptText;
+    }
+
+    function submit() {
+        var myText = document.getElementById("submit");
+        let userResponse = document.querySelector("#userResponse");
+        let usersText = document.querySelector("#usersText");
+
+        usersText.innerHTML = "You betweeted: " + userResponse.value;
+    }
+
+    function submitResponse() {
+      var response = document.getElementById('response').value;
+      // Here, you can perform further actions with the user's response,
+      // such as saving it to a database or displaying it on the page.
+      alert('Response submitted: ' + response);
+      document.getElementById('response').value = ''; // Clear the response input
+      displayPrompt(); // Display a new prompt after submitting the response
+    }
+  </script>
+</head>
+<body>
+  <h1>Betweety</h1>
+  <div id="prompt"></div>
+  <textarea id="response" rows="4" cols="50"></textarea>
+  <br>
+  <button onclick="submitResponse()">Submit</button>
+  <input id="userResponse"> <br> <br>
+    <button id="myText" onclick="submit()"> Submit </button>
+    <h3 id="usersText"></h3>
+</body>
+<script>
+  // Display the initial prompt when the page loads
+  displayPrompt();
+</script>
+</html>
